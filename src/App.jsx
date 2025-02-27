@@ -1,5 +1,9 @@
 import { useState } from 'react';
 
+import Task from './components/Task';
+
+import './App.css';
+
 function App() {
   const [tasks, setTasks] = useState([
     {
@@ -27,16 +31,7 @@ function App() {
       <h1>Lista de Tarefas</h1>
       <div className="to-do-list">
         {tasks.map((task) => (
-          <div className="task">
-            <div className="content">
-              <p>{ task.text }</p>
-              <p>({ task.category })</p>
-            </div>
-            <div>
-              <button>Completar</button>
-              <button>x</button>
-            </div>
-          </div>
+          <Task task={task} />
         ))}
       </div>
     </div>
