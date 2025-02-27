@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Task from './components/Task';
+import NewTaskForm from './components/NewTaskForm';
 
 import './App.css';
 
@@ -34,6 +35,7 @@ function App() {
           <Task task={task} />
         ))}
       </div>
+      <NewTaskForm />
     </div>
   );
 }
