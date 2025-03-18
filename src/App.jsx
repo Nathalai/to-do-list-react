@@ -48,12 +48,25 @@ function App() {
     setTasks(filteredTasks);
   };
 
+  const completeTask = (id) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
+      )
+    );
+  };
+
   return (
     <div className='app'>
       <h1>Lista de Tarefas</h1>
       <div className='to-do-list'>
         {tasks.map((task) => (
-          <Task key={task.id} task={task} removeTask={removeTask} />
+          <Task
+            key={task.id}
+            task={task}
+            removeTask={removeTask}
+            completeTask={completeTask}
+          />
         ))}
       </div>
       <NewTaskForm addTask={addTask} />

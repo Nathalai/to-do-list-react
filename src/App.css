@@ -48,6 +48,15 @@ button:hover {
   background-color: #5cb85c;
 }
 
+.reverse {
+  background-color: #f7b12e;
+}
+
+.complete.hidden,
+.reverse.hidden {
+  display: none;
+}
+
 .remove {
   background-color: #d9534f;
   margin-left: 5px;
@@ -68,6 +77,12 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.task.completed {
+  background-color: #d4edda;
+  opacity: 0.6;
+  text-decoration: line-through;
 }
 
 new-task-form {
