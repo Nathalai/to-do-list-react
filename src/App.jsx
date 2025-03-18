@@ -40,12 +40,20 @@ function App() {
     setTasks(updatedTasks);
   };
 
+  const removeTask = (id) => {
+    const allTasks = [...tasks];
+    const filteredTasks = allTasks.filter((task) =>
+      task.id !== id ? task : null
+    );
+    setTasks(filteredTasks);
+  };
+
   return (
     <div className='app'>
       <h1>Lista de Tarefas</h1>
       <div className='to-do-list'>
         {tasks.map((task) => (
-          <Task key={task.id} task={task} />
+          <Task key={task.id} task={task} removeTask={removeTask} />
         ))}
       </div>
       <NewTaskForm addTask={addTask} />

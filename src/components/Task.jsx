@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Task = ({ task }) => {
+const Task = ({ task, removeTask }) => {
   return (
     <div className='task'>
       <div className='content'>
@@ -9,7 +9,9 @@ const Task = ({ task }) => {
       </div>
       <div>
         <button className='complete'>Completar</button>
-        <button className='remove'>x</button>
+        <button className='remove' onClick={() => removeTask(task.id)}>
+          x
+        </button>
       </div>
     </div>
   );
