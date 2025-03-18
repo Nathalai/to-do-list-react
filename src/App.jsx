@@ -9,33 +9,46 @@ function App() {
   const [tasks, setTasks] = useState([
     {
       id: 1,
-      text: 'Criar funcionalidade X no sistema',
+      title: 'Criar funcionalidade X no sistema',
       category: 'Trabalho',
       isCompleted: false,
     },
     {
       id: 2,
-      text: ' Ir para a academia',
+      title: ' Ir para a academia',
       category: 'Pessoal',
       isCompleted: false,
     },
     {
       id: 3,
-      text: 'Estudar React',
+      title: 'Estudar React',
       category: 'Estudos',
       isCompleted: false,
     },
-], )
+  ]);
+
+  const addTask = (title, category) => {
+    const updatedTasks = [
+      ...tasks,
+      {
+        id: Math.floor(Math.random() * 10000),
+        title,
+        category,
+        isCompleted: false,
+      },
+    ];
+    setTasks(updatedTasks);
+  };
 
   return (
     <div className='app'>
       <h1>Lista de Tarefas</h1>
-      <div className="to-do-list">
+      <div className='to-do-list'>
         {tasks.map((task) => (
-          <Task task={task} />
+          <Task key={task.id} task={task} />
         ))}
       </div>
-      <NewTaskForm />
+      <NewTaskForm addTask={addTask} />
     </div>
   );
 }

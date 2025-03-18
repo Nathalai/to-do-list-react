@@ -1,65 +1,84 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #6d856a;
-    padding: 30px;
-    color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #6d856a;
+  padding: 30px;
+  color: #333;
 }
 
 .app {
-    max-width: 600px;
-    margin: 0 auto 300px;
-    background-color: #efefef;
-    padding: 20px 30px;
-    border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto 300px;
+  background-color: #efefef;
+  padding: 20px 30px;
+  border-radius: 10px;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 h2 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 p {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 input {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 button {
-    background-color: #5478bb;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    opacity: .8;
-    transition: .3s;
+  background-color: #5478bb;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.3s;
 }
 
 button:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .complete {
-    background-color: #5cb85c;
+  background-color: #5cb85c;
 }
 
 .remove {
-    background-color: #d9534f;
+  background-color: #d9534f;
+  margin-left: 5px;
+}
+
+.to-do-list {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #555;
+}
+
+.task {
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 new-task-form {
-    padding-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
-input, select {
-    padding: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 100%;
+input,
+select {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 100%;
 }
