@@ -4,6 +4,7 @@ import Task from './components/Task';
 import NewTaskForm from './components/NewTaskForm';
 
 import './App.css';
+import Search from './components/Search';
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -26,6 +27,8 @@ function App() {
       isCompleted: false,
     },
   ]);
+
+  const [search, setSearch] = useState('');
 
   const addTask = (title, category) => {
     const updatedTasks = [
@@ -59,15 +62,20 @@ function App() {
   return (
     <div className='app'>
       <h1>Lista de Tarefas</h1>
+      <Search search={search} setSearch={setSearch} />
       <div className='to-do-list'>
-        {tasks.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            removeTask={removeTask}
-            completeTask={completeTask}
-          />
-        ))}
+        {tasks
+          .filter((task) =>
+            task.title.toLowerCase().includes(search.toLowerCase())
+          )
+          .map((task) => (
+            <Task
+              key={task.id}
+              task={task}
+              removeTask={removeTask}
+              completeTask={completeTask}
+            />
+          ))}
       </div>
       <NewTaskForm addTask={addTask} />
     </div>
