@@ -2,9 +2,10 @@ import { useState } from 'react';
 
 import Task from './components/Task';
 import NewTaskForm from './components/NewTaskForm';
+import Search from './components/Search';
+import Filter from './components/Filter';
 
 import './App.css';
-import Search from './components/Search';
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -16,7 +17,7 @@ function App() {
     },
     {
       id: 2,
-      title: ' Ir para a academia',
+      title: 'Ir para a academia',
       category: 'Pessoal',
       isCompleted: false,
     },
@@ -30,7 +31,13 @@ function App() {
 
   const [search, setSearch] = useState('');
 
+  const [filter, setFilter] = useState('all');
+  const [sort, setSort] = useState('asc');
+
   const addTask = (title, category) => {
+    const trimmedTitle = title.trim();
+    if (!trimmedTitle) return;
+
     const updatedTasks = [
       ...tasks,
       {
@@ -63,10 +70,23 @@ function App() {
     <div className='app'>
       <h1>Lista de Tarefas</h1>
       <Search search={search} setSearch={setSearch} />
+      <Filter filter={filter} setFilter={setFilter} setSort={setSort} />
       <div className='to-do-list'>
         {tasks
           .filter((task) =>
+            filter === 'all'
+              ? true
+              : filter === 'completed'
+              ? task.isCompleted
+              : !task.isCompleted
+          )
+          .filter((task) =>
             task.title.toLowerCase().includes(search.toLowerCase())
+          )
+          .sort((task1, task2) =>
+            sort === 'asc'
+              ? task1.title.localeCompare(task2.title)
+              : task2.title.localeCompare(task1.title)
           )
           .map((task) => (
             <Task
